@@ -1,2 +1,31 @@
 ---
 # tasks file for kali
+
+- name: Install Pure Ftpd
+  apt:
+    name: pure-ftpd 
+
+- name: Install Mingw
+  apt:
+    name: mingw-w64
+
+- name: Install MSSql Packages
+  apt:
+    name:
+      - sqsh
+      - freetds-bin
+      - freetds-common
+      - freetds-dev
+
+- name: Install Gobuster
+  apt:
+    name: gobuster
+
+- name: Install Seclists
+  apt:
+    name: seclists
+
+- name: Setup Vimrc
+  template:
+    src: .vimrc.j2
+    dest: ~/.vimrc  
