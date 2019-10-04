@@ -10,3 +10,11 @@ pastables_dir: ~/Pastables
 pastables_git: https://github.com/wshenk/pastables.git
 
 pwndbg_dir: /opt/pwndbg
+
+ghidra_site: https://ghidra-sre.org
+ghidra_version: ghidra_9.0.2
+ghidra_file: ghidra_9.0.2_PUBLIC_20190403
+ghidra_ext: zip
+ghidra_url: "{{ghidra_site}}/{{ghidra_file}}.{{ghidra_ext}}"
+ghidra_dir: /opt/ghidra
+ghidra_logo: "{{ghidra_dir}}/{{ghidra_version}}/docs/GhidraClass/AdvancedDevelopment/Images/GhidraLogo64.png"

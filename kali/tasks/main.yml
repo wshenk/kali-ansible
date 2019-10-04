@@ -13,6 +13,10 @@
   apt:
     name: gdb
 
+- name: Install JDK
+  apt:
+    name: default-jdk
+
 - name: Install MSSql Packages
   apt:
     name:
@@ -79,7 +83,7 @@
     repo: https://github.com/pwndbg/pwndbg.git
     dest: "{{pwndbg_dir}}"
 
-- name: Check for pwndbg install
+- name: Check for pwndb install
   lineinfile:
     name: ~/.gdbinit
     line: "source {{pwndbg_dir}}/gdbinit.py"
@@ -92,5 +96,30 @@
   args:
     chdir: "{{pwndbg_dir}}"
   when: pwndbg_install.changed
-  
+ 
+- name: Create directory for ghidra
+  file:
+    path: "{{ghidra_dir}}"
+    state: directory
+
+- name: Download Ghidra 
+  get_url:
+    url: "{{ghidra_url}}"
+    dest: "{{ghidra_dir}}"
+
+- name: Unzip Ghidra
+  unarchive:
+    src: "{{ghidra_dir}}/{{ghidra_file}}.{{ghidra_ext}}"
+    dest: "{{ghidra_dir}}"
+
+- name: Link Ghidra
+  file:
+    src: "{{ghidra_dir}}/{{ghidra_version}}/ghidraRun"
+    dest: "/usr/local/bin/ghidraRun"
+    state: link
+
+- name: Setup Ghidra
+  template:
+    src: ghidra.desktop.j2
+    dest: /usr/share/applications/ghidra.desktop
 
