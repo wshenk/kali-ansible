@@ -1,2 +1,7 @@
 ---
 # defaults file for kali
+
+gnome_loc: /usr/local/bin
+gnome_script: open_gnometerms.sh
+gnome_pic: gnome.png
+gnome_dir: /usr/local/share/gnometerms

@@ -29,3 +29,28 @@
   template:
     src: .vimrc.j2
     dest: ~/.vimrc  
+
+- name: Setup gnome terms
+  template:
+    src: open_gnometerms.desktop.j2
+    dest: /usr/share/applications/open_gnometerms.desktop
+
+- name: Copy gnome script
+  copy:
+    src: "{{gnome_script}}"
+    dest: "{{gnome_loc}}/{{gnome_script}}" 
+    mode: "0755"
+
+- name: Create directory for gnome files
+  file:
+    path: "{{gnome_dir}}"
+    state: directory 
+
+- name: Copy gnome png
+  copy:
+    src: "{{gnome_pic}}"
+    dest: "{{gnome_dir}}/{{gnome_pic}}"
+
+- name: How to recognized gnometerms desktop app
+  debug:
+    msg: "alt f2 & type restart"
