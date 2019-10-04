@@ -9,3 +9,4 @@ gnome_dir: /usr/local/share/gnometerms
 pastables_dir: ~/Pastables
 pastables_git: https://github.com/wshenk/pastables.git
 
+pwndbg_dir: /opt/pwndbg

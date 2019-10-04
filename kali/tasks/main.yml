@@ -9,6 +9,10 @@
   apt:
     name: mingw-w64
 
+- name: Install GDB
+  apt:
+    name: gdb
+
 - name: Install MSSql Packages
   apt:
     name:
@@ -60,6 +64,33 @@
     path: "{{pastables_dir}}"
     state: directory
 
-- git:
+- name: Get pastables
+  git:
     repo: https://github.com/wshenk/pastables.git
     dest: "{{pastables_dir}}"
+
+- name: Create pwndbg dir
+  file:
+    path: "{{pwndbg_dir}}"
+    state: directory
+
+- name: Get pwndbg
+  git:
+    repo: https://github.com/pwndbg/pwndbg.git
+    dest: "{{pwndbg_dir}}"
+
+- name: Check for pwndbg install
+  lineinfile:
+    name: ~/.gdbinit
+    line: "source {{pwndbg_dir}}/gdbinit.py"
+    state: present
+  check_mode: present
+  register: pwndbg_install    
+
+- name: Install pwndbg
+  shell: ./setup.sh
+  args:
+    chdir: "{{pwndbg_dir}}"
+  when: pwndbg_install.changed
+  
+
