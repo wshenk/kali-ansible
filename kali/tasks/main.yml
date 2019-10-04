@@ -123,3 +123,7 @@
     src: ghidra.desktop.j2
     dest: /usr/share/applications/ghidra.desktop
 
+- name: Init msfdb
+  shell: "msfdb init"
+  args:
+    chdir: "~/"
