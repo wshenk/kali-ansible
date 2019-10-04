@@ -54,3 +54,12 @@
 - name: How to recognized gnometerms desktop app
   debug:
     msg: "alt f2 & type restart"
+
+- name: Create Pastables directory
+  file:
+    path: "{{pastables_dir}}"
+    state: directory
+
+- git:
+    repo: https://github.com/wshenk/pastables.git
+    dest: "{{pastables_dir}}"

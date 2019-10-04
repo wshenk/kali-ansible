@@ -5,3 +5,7 @@ gnome_loc: /usr/local/bin
 gnome_script: open_gnometerms.sh
 gnome_pic: gnome.png
 gnome_dir: /usr/local/share/gnometerms
+
+pastables_dir: ~/Pastables
+pastables_git: https://github.com/wshenk/pastables.git
+
