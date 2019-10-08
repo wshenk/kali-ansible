@@ -33,6 +33,14 @@
   apt:
     name: seclists
 
+- name: Install jxplorer
+  apt:
+    name: jxplorer
+
+- name: Install bloodhound
+  apt:
+    name: bloodhound
+
 - name: Setup Vimrc
   template:
     src: .vimrc.j2
