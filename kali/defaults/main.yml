@@ -9,6 +9,10 @@ gnome_dir: /usr/local/share/gnometerms
 pastables_dir: ~/Pastables
 pastables_git: https://github.com/wshenk/pastables.git
 
+opt_dir: /opt/
+
+nullinux_dir: /opt/nullinux
+
 pwndbg_dir: /opt/pwndbg
 
 ghidra_site: https://ghidra-sre.org

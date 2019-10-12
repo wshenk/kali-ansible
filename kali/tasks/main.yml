@@ -81,6 +81,23 @@
     repo: https://github.com/wshenk/pastables.git
     dest: "{{pastables_dir}}"
 
+- name: Create Nullinux Directory
+  file: 
+    path: "{{nullinux_dir}}"
+    state: directory
+
+- name: Get Nullinux
+  git:
+    repo: https://github.com/m8r0wn/nullinux
+    dest: "{{nullinux_dir}}"
+  register: nullinux_install
+
+- name: Install Nullinux
+  shell: ./setup.sh
+  args:
+    chdir: "{{nullinux_dir}}"
+  when: nullinux_install.changed
+
 - name: Create pwndbg dir
   file:
     path: "{{pwndbg_dir}}"
