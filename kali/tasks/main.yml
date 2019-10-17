@@ -108,6 +108,11 @@
     repo: https://github.com/pwndbg/pwndbg.git
     dest: "{{pwndbg_dir}}"
 
+- name: Ensure gdbinit exists
+  file:
+    path: ~/.gdbinit
+    state: touch
+
 - name: Check for pwndb install
   lineinfile:
     name: ~/.gdbinit
