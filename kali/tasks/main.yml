@@ -41,6 +41,15 @@
   apt:
     name: bloodhound
 
+- name: Install libssl-dev (pwntools dependency)
+  apt:
+    name: libssl-dev
+
+- name: Install pwntools
+  pip:
+    name: pwntools
+    executable: pip
+
 - name: Setup Vimrc
   template:
     src: .vimrc.j2
