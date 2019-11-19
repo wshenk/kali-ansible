@@ -50,6 +50,12 @@
     name: pwntools
     executable: pip
 
+- name: Install ropper
+  pip:
+    name: ropper
+    executable: pip
+
+
 - name: Setup Vimrc
   template:
     src: .vimrc.j2
