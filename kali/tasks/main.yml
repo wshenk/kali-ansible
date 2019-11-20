@@ -9,6 +9,10 @@
   apt:
     name: mingw-w64
 
+- name: Install Build Essential
+  apt:
+    name: build-essential
+
 - name: Install GDB
   apt:
     name: gdb
