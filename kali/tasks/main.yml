@@ -21,6 +21,10 @@
   apt:
     name: default-jdk
 
+- name: Install Python-pip
+  apt:
+    name: python-pip
+
 - name: Install MSSql Packages
   apt:
     name:
