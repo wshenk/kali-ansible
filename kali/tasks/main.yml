@@ -53,6 +53,10 @@
   apt:
     name: libssl-dev
 
+- name: Install python3.8-dev
+  apt:
+    name: python3.8-dev
+
 - name: Install pwntools
   pip:
     name: pwntools
@@ -67,7 +71,14 @@
 - name: Setup Vimrc
   template:
     src: .vimrc.j2
-    dest: ~/.vimrc  
+    dest: /root/.vimrc  
+
+- name: Setup Vimrc
+  template:
+    src: .vimrc.j2
+    dest: /home/kali/.vimrc  
+    owner: kali
+    group: kali
 
 - name: Setup gnome terms
   template:
@@ -133,12 +144,14 @@
 
 - name: Ensure gdbinit exists
   file:
-    path: ~/.gdbinit
+    path: /home/kali/.gdbinit
     state: touch
+    owner: kali
+    group: kali
 
 - name: Check for pwndb install
   lineinfile:
-    name: ~/.gdbinit
+    name: /home/kali/.gdbinit
     line: "source {{pwndbg_dir}}/gdbinit.py"
     state: present
   check_mode: present
@@ -179,4 +192,4 @@
 - name: Init msfdb
   shell: "msfdb init"
   args:
-    chdir: "~/"
+    chdir: "/home/kali/"
