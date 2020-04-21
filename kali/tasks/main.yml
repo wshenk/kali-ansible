@@ -79,17 +79,6 @@
     owner: kali
     group: kali
 
-- name: Setup gnome terms
-  template:
-    src: open_gnometerms.desktop.j2
-    dest: /usr/share/applications/open_gnometerms.desktop
-
-- name: Copy gnome script
-  copy:
-    src: "{{gnome_script}}"
-    dest: "{{gnome_loc}}/{{gnome_script}}" 
-    mode: "0755"
-
 - name: Create Pastables directory
   file:
     path: "{{pastables_dir}}"
